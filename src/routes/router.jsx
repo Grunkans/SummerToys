@@ -1,6 +1,7 @@
 import { createHashRouter } from "react-router-dom";
 import Root from './root.jsx'
 import Products from "../components/products.jsx";
+import Orderpage from "../components/orderpage.jsx";
 
 
 
@@ -17,14 +18,14 @@ const router = createHashRouter([
 
 		// Inuti Root ska vi klistra in den komponent vars route matchar URL bäst
 		children: [
-			// {
-			// 	path: '/friends',
-			// 	element: <FriendList />
-			// },
-			// {
-			// 	path: '/edit/:id',
-			// 	element: <EditFriend />
-			// },
+			{
+				path: '/orderpage',
+				element: <Orderpage />
+			},
+			{
+				path: '/products',
+				element: <Products />
+			},
 			// {
 			// 	path: '/add',
 			// 	element: <AddFriend />
