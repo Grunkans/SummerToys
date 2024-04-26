@@ -1,4 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom"
+import loggo from "../assets/SummerToysLogo.png"
 
 
 // Router motsvarar App-komponenten
@@ -6,18 +7,22 @@ import { Link, NavLink, Outlet } from "react-router-dom"
 const Root = () => (
 	<div className="app">
 		<header>
-			<h1> Summertoys </h1>
-			<nav>
-				{/* <NavLink to="/"> Start </NavLink>
-				<NavLink to="/friends"> Vänlista </NavLink>
-				<NavLink to="/add"> Ny vän </NavLink> */}
-			</nav>
+			<img className="logga" src= {loggo} alt="" />
 		</header>
 
 		<main>
 			<Outlet />
 		</main>
+		<footer>
+
+		</footer>
 	</div>
 )
 
 export default Root
+
+{/* <nav>
+				<NavLink to="/"> Start </NavLink>
+				<NavLink to="/friends"> Vänlista </NavLink>
+				<NavLink to="/add"> Ny vän </NavLink>
+			</nav> */}

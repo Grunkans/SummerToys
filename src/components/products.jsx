@@ -2,9 +2,9 @@
 import { useEffect } from 'react'
 import { getProducts } from '../data/crud.js'
 import { useStore } from '../data/store.js'
-import '../App.css'
+import '../css/root.css'
  
-// import ViewEmployee from './ViewEmployee.jsx'
+
 
 const Products = () => {
 	const { products, setProducts } = useStore(state => ({
@@ -21,14 +21,15 @@ const Products = () => {
 	}, []);
 
 	return (
-		<div>
+		<div className ="productBoxContainer">
 						
 			{products.map(e => (
 				<section key={e.key} className ="productBox">					
 				<img src={e.picture} className = "productPicture"></img>
 				<p className='productName'>{e.name}</p>
-				<p className='productPrice'>{e.price}</p>
 				<p className='productDescription'>{e.description}</p>
+				<button>Köp</button><p className='productPrice'>{e.price}kr</p>
+				
 				</section>
 				
 			
