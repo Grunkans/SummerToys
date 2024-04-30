@@ -1,9 +1,14 @@
 // import { useState } from 'react'
 import { useEffect } from 'react'
 import { getProducts } from '../data/crud.js'
-import { useStore } from '../data/store.js'
+import { useStore, } from '../data/store.js'
 import '../css/root.css'
- 
+
+
+
+
+
+
 
 
 const Products = () => {
@@ -12,14 +17,19 @@ const Products = () => {
 		setProducts: state.setProducts
 	}))
 
+	const addToCart = useStore(state => state.addCartItems)
+	
+
 	const handleGetProducts = async () => {
 		setProducts(await getProducts())
 	}
 
+	
+
 	useEffect(() => {
 		handleGetProducts();
 	}, []);
-
+console.log("products vad", Products);
 	return (
 		<div className ="productBoxContainer">
 						
@@ -28,7 +38,9 @@ const Products = () => {
 				<img src={e.picture} className = "productPicture"></img>
 				<p className='productName'>{e.name}</p>
 				<p className='productDescription'>{e.description}</p>
-				<button>Köp</button><p className='productPrice'>{e.price}kr</p>
+				<button className="addToCart" onClick={() => addToCart(e)}>köp</button>
+				<p className='productPrice'>{e.price}kr</p>
+				
 				
 				</section>
 				
@@ -38,4 +50,6 @@ const Products = () => {
 	)
 }
 
+
 export default Products
+
