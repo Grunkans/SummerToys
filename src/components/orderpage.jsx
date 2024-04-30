@@ -15,37 +15,29 @@ const Orderpage=()=>{
 		
 		<div className="order-page-container">
 
-			{/* {orderedItems.map((item, index) => (
+			{cartItems.map((cartItems, index) => (
               <div className="selected-product-container" key={index}>
                 <div className='selected'>
-                  <div className='name-price'>
-                    <h3>{item.name}</h3>
-                    <p className="price">{item.price} kr</p>
+                  <div className='cart-name'>
+                    <h3>{cartItems.name}</h3>
+                    <p className="cart-price">{cartItems.price} kr</p>
                   </div>
-
-                  <div className='delete-conatiner'>
-                  <button className='cart-delete-btn' onClick={() => deleteOrderedItem(item.id)}>
-                    <img src={Delete} alt='delete icon' />
-                  </button>
-
-                  </div>
-                  
-
-
                 </div>
               </div>
-            ))} */}
+            ))}
+
+			<div className ="total">
+			<p>Totalt: {cartItems.reduce((total, item) => total + parseFloat(item.price), 0)} kr</p>
+
+
+			</div>
 			
-			{/* <p className="name">{cartItems.name} kr</p> */}
-
-
-
-
-			{/* <div className="order-container">hej {cartItems.map}</div> */}
-			
+	
+		</div>
+		
+        
 
 		
-		</div>
 		
 
 

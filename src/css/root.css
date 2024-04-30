@@ -7,7 +7,7 @@ body{
 
 header{
 	display: flex;
-	height: 15vh;
+	height: 28vh;
 	background-color: #72C549;
 
   }
@@ -31,10 +31,7 @@ height: 5vh;
 background-color: #72C549;
 }
 
-.orderPageContainer{
-	height: 500px;
-	background-color: aquamarine;
-}
+
 
 .productPicture{
 

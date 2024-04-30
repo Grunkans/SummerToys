@@ -1,19 +1,36 @@
 .order-page-container{
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	align-items: left;
 	justify-content: center;
 	background-color: #94E56B;
 	margin: 20px;
 	max-width: 500px;
+	min-width: 200px;
+	border-radius: 10px;
+	
 
 }
 
-.order-container{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 20px;
+.selected-product-container{
+	margin: 10px;
+	border-radius: 10px;
 	background-color: #72C549;
+
+
+}
+
+.cart-name{
+	margin-left: 4px;
+	
+	
+
+
+}
+
+
+.cart-price{
+	margin-left: 4px;
 
 
 }
