@@ -32,16 +32,13 @@ background-color: #72C549;
 }
 
 
-
 .productPicture{
 
 	max-width: 300px;
 	margin-top: 25px;
 }
 
-.productName{
 
-}
 
 .productDescription{
 	margin-left: 10px;
@@ -49,9 +46,7 @@ background-color: #72C549;
 
 }
 
-.productPrice{
 
-}
 
 
 .productBoxContainer{

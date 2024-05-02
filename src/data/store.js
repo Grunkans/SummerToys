@@ -14,6 +14,11 @@ const useStore = create(set => ({
 	addCartItems: (item) => set(state => ({
 		cartItems: [...state.cartItems, item]
 	}))
+
+
+	
+
+	
 	// increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
 
 	// addProduct: products => set(state => ({
@@ -22,6 +27,7 @@ const useStore = create(set => ({
 
 	
 }))
+
 
 
 

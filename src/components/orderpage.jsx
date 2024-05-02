@@ -1,5 +1,6 @@
 import'../css/orderpage.css'
 import {useStore} from "../data/store.js"
+import Confirmform from './Customerform.jsx'
 
 
 
@@ -30,7 +31,12 @@ const Orderpage=()=>{
 			<p>Totalt: {cartItems.reduce((total, item) => total + parseFloat(item.price), 0)} kr</p>
 
 
+			<div><Confirmform/></div>
+
+
 			</div>
+
+		
 			
 	
 		</div>
