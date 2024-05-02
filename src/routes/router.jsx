@@ -2,6 +2,7 @@ import { createHashRouter } from "react-router-dom";
 import Root from './root.jsx'
 import Products from "../components/products.jsx";
 import Orderpage from "../components/orderpage.jsx";
+import Admin from "../components/Adminpage.jsx"
 
 
 
@@ -26,10 +27,10 @@ const router = createHashRouter([
 				path: '/products',
 				element: <Products />
 			},
-			// {
-			// 	path: '/add',
-			// 	element: <AddFriend />
-			// },
+			{
+				path: '/Admin',
+				element: <Admin />
+			},
 			{
 				path: '/',
 				element: <Products />

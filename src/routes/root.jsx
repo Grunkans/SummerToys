@@ -23,6 +23,8 @@ const Root = () => (
 		</main>
 		<footer>
 
+		<NavLink to='/Admin'>Admin</NavLink>
+
 		</footer>
 	</div>
 )
