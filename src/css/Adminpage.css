@@ -1,0 +1,22 @@
+.productBoxContainerAdmin{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    
+
+}
+
+.productBoxAdmin{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	max-width: 350px;
+	flex-direction: column;
+	background-color: rgb(197, 189, 189);
+	margin: 25px;
+	
+	
+}
