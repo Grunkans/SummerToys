@@ -9,45 +9,42 @@ import { db } from './fire.js'
 
 async function getProducts() {
 	const productsCollection = collection(db, 'products')
+	const productsSnapshot = await getDocs(productsCollection);
+  const productsList = productsSnapshot.docs.map(doc => withKey(doc));
+  return productsList;
 
-	// Hämta alla dokument i collection "products"
-	const productsSnapshot = await getDocs(productsCollection)
-	// console.log('getProducts: snapshot is', productsSnapshot)
-
-
-	const productsList = productsSnapshot.docs.map(doc => withKey(doc))
-	return productsList
 }
+
+function withKey(doc) {
+	let o = doc.data();
+	o.key = doc.id;  // "id" är dokumentreferensen
+	return o;
+  }
 
 // Use this if you don't have an id in the objects themselves
-function withKey(doc) {
-	let o = doc.data()
-	o.key = doc.id  // "id" is the document reference
-	return o
+// function withKey(doc) {
+// 	let o = doc.data()
+// 	o.key = doc.id  // "id" is the document reference
+// 	return o
+// }
+
+async function updateProduct(updatedProduct) {
+  try {
+    const productRef = doc(db, 'products', updatedProduct.key);
+    await updateDoc(productRef, {
+      name: updatedProduct.name,
+      description: updatedProduct.description,
+      price: updatedProduct.price,
+      picture: updatedProduct.picture
+    });
+    console.log('Produkt uppladdad');
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
-// async function addEmployee(employee) {
-// 	// referens till collection 'employees'
-// 	await addDoc(collectionRef, employee)
-// }
-
-// async function deleteEmployee(key) {
-// 	const docRef = doc(collectionRef, key)
-// 	// console.log('deleteEmployee: ', docRef);
-// 	deleteDoc(docRef)
-// }
-
-// async function editEmployee(key, updatedEmployee) {
-// 	// vi behöver en "collection reference"
-// 	// vi skapar en referens till dokumentet vi ska ändra på
-// 	// leta upp en funktion som kan uppdatera ett dokument
-// 	const docRef = doc(collectionRef, key)
-
-// 	// Två alternativ för att ändra:
-// 	// updateDoc - uppdaterar ett befintligt objekt
-// 	// setDoc - uppdaterar eller skapar ett objekt
-// 	await updateDoc(docRef, updatedEmployee)
-// }
 
 
-export { getProducts }
+
+
+export { getProducts, updateProduct }
