@@ -13,7 +13,11 @@ const useStore = create(set => ({
 	cartItems: [],
 	addCartItems: (item) => set(state => ({
 		cartItems: [...state.cartItems, item]
-	}))
+	})),
+
+	clearItems: () => set({
+		cartItems: []
+	  }),
 
 
 	

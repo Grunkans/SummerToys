@@ -20,8 +20,10 @@
 
 }
 
+
 .confirm-info{
 	border: solid #72C549;
+	max-width: 95%;
 
 }
 
@@ -29,8 +31,10 @@
 	margin-left: 4px;
 	
 	
+}
 
-
+.confirm-textarea{
+	max-width: 95%;
 }
 
 

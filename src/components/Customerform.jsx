@@ -61,7 +61,6 @@ const Confirmform = () => {
 	
 	const handleClick = () => {
 		clearItems();
-		setShowPopup(true);
 		
 	};
 	

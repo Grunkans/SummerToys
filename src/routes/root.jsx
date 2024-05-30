@@ -13,7 +13,7 @@ const Root = () => (
 
 			<nav>
 			
-							<NavLink to='/orderpage'> Varukorg <img className="varukorgImg" src= {varukorg} alt="" /></NavLink>
+							<NavLink to='/orderpage' className="varukorg-link"> Varukorg <img className="varukorgImg" src= {varukorg} alt="" /></NavLink>
 			</nav>
 
 		</header>
