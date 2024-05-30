@@ -7,12 +7,25 @@ body{
 
 header{
 	display: flex;
-	height: 28vh;
+	align-items: center;
+	justify-content: center;
+	height: 15vh;
 	background-color: #72C549;
 
   }
 
+  button{
+	margin: 10px;
+	padding: 5px 10px;
+	background-color: rgba(245, 245, 245, 0.886);
+	cursor: pointer;
+	border: 1px solid black;
+	border-radius: 5px;
+
+}
+
   .varukorg-link{
+	margin-left: 3px;
 	color: rgba(0, 0, 0, 0.752);
   }
 
