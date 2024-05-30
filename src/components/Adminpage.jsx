@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react'
-import { getProducts, updateProduct } from '../data/crud.js'
+import { getProducts, updateProduct, addProduct, deleteProduct } from '../data/crud.js'
 import { useStore, } from '../data/store.js'
 import '../css/root.css'
 import '../css/Adminpage.css'
 import EditProductForm from './Editform.jsx'
 import React from 'react'
-
-
-
 
 
 
@@ -20,6 +17,7 @@ const Admin = () => {
 	}))
 
 	const [editingProduct, setEditingProduct] = useState(null)
+	const [isAdding, setIsAdding] = useState(false)
 	
 
 	const handleGetProducts = async () => {
@@ -30,21 +28,36 @@ const Admin = () => {
 		setEditingProduct(product)
 	  }
 	
-	  const handleSaveProduct = async (updatedProduct) => {
-		await updateProduct(updatedProduct)
+	  const handleSaveProduct = async (product) => {
+		if (isAdding) {
+		  await addProduct(product)
+		  setIsAdding(false)
+		} else {
+		  await updateProduct(product)
+		}
 		setProducts(await getProducts())
 		setEditingProduct(null)
 	  }
+
+	  const handleAddProduct = () => {
+		setEditingProduct({ name: '', description: '', price: '', picture: '' })
+		setIsAdding(true)
+	  };
 	
 	  const handleCancelEdit = () => {
 		setEditingProduct(null)
+	  }
+
+	  const handleDeleteProduct = async (productId) => {
+		await deleteProduct(productId)
+		setProducts(await getProducts())
 	  }
 
 	
 
 	useEffect(() => {
 		handleGetProducts();
-	}, []);
+	}, [])
 
 
 
@@ -56,12 +69,13 @@ const Admin = () => {
 			  <p className='productName'>{e.name}</p>
 			  <p className='productDescription'>{e.description}</p>
 			  <button onClick={() => handleEditProduct(e)}>Ändra</button>
+			  <button onClick={() => handleDeleteProduct(e.key)}>Radera</button>
 			  <p className='productPrice'>{e.price}kr</p>
 			</section>
 		  ))}
 	
 		  <div>
-			<button>Lägg till ny produkt</button>
+			<button onClick={handleAddProduct}>Lägg till ny produkt</button>
 		  </div>
 	
 		  {editingProduct && (
