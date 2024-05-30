@@ -57,7 +57,7 @@ const Confirmform = () => {
 	}
 	
 	
-	const [showPopup, setShowPopup] = useState(false);
+	
 	
 	const handleClick = () => {
 		clearItems();
